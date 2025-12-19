@@ -7,11 +7,12 @@ import FoodList from "./components/FoodList.jsx";
 import ProductList from "./components/ProductList.jsx";
 import Layout from "./components/Layout.jsx";
 import NotFound from "./components/NotFound.jsx";
-import { useParentContext, ParentContextProvider } from "../store.jsx";
+// import { useParentContext, ParentContextProvider } from "../store.jsx";
 import "./style.css";
+import Login from "./pages/auth/Login.jsx";
+import AppProvider from "./context/AppContext.js";
 
 const App = () => {
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -26,21 +27,25 @@ const App = () => {
           path: "/to-do-app",
           element: <ProductList />,
         },
+        {
+          path: "/login",
+          element: <Login />,
+        },
       ],
     },
-
-
   ]);
   return (
-    <ParentContextProvider>
+    // <ParentContextProvider>
+    <AppProvider>
       <RouterProvider router={router}>
         <Header />
         <FoodList />
         <ProductList />
         <Footer />
       </RouterProvider>
-    </ParentContextProvider>
-  )
-}
+    </AppProvider>
+    // </ParentContextProvider>
+  );
+};
 
 export default App;

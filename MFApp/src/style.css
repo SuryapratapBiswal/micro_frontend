@@ -1,34 +1,36 @@
 .header {
-    font-size: 25px;
-    font-weight: bold;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 8px 6px -6px #ccc;
-    display: flex;
-    justify-content: center;
-    gap: 50px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 8px 6px -6px #ccc;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
 }
 
 .routes {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    width: 400px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  width: 600px;
 }
 
 .footer {
-    font-weight: bold;
-    text-align: center;
-    padding: 10px 0;
-    border-top: 1px solid #ccc;
-    box-shadow: 0px -5px 5px #ccc;
-    width: 99%;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+  box-shadow: 0px -5px 5px #ccc;
+  width: 99%;
 }
 
-.short-list-container, .detail-list-container, .todo-list-container {
-    padding: 20px;
+.short-list-container,
+.detail-list-container,
+.todo-list-container {
+  padding: 20px;
 }
