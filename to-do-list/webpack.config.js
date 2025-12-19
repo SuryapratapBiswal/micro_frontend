@@ -2,7 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const {ModuleFederationPlugin} = require("webpack").container;
+const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
   mode: "development",
@@ -24,9 +24,12 @@ module.exports = {
       name: "ToDoApp",
       filename: "remoteEntry.js",
       exposes: {
-        "./TodoApp": "/src/TodoApp.jsx"
+        "./TodoApp": "/src/TodoApp.jsx",
       },
-      shared:["react", "react-dom"]
+      shared: {
+        react: { singleton: true, requiredVersion: false },
+        "react-dom": { singleton: true, requiredVersion: false },
+      },
     }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({

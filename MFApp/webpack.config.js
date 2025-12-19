@@ -28,9 +28,13 @@ module.exports = {
           "commonComponents@http://localhost:3001/remoteEntry.js",
         ShortCardInHost:
           "commonComponents@http://localhost:3001/remoteEntry.js",
+        TodoCardInHost: "commonComponents@http://localhost:3001/remoteEntry.js",
         TodoAppHost: "ToDoApp@http://localhost:3002/remoteEntry.js",
       },
-      shared: ["react", "react-dom"],
+      shared: {
+        react: { singleton: true, requiredVersion: false },
+        "react-dom": { singleton: true, requiredVersion: false },
+      },
     }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({

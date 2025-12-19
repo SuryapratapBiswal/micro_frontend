@@ -2,7 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const {ModuleFederationPlugin} = require("webpack").container;
+const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
   mode: "development",
@@ -23,10 +23,18 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "commonComponents",
       filename: "remoteEntry.js",
+      remotes: {
+        TodoAppHost: "ToDoApp@http://localhost:3002/remoteEntry.js",
+      },
       exposes: {
-        "./CardDetails" : "/src/components/CardDetails.jsx",
-        "./CardShort": "/src/components/CardShort.jsx"
-      }
+        "./CardDetails": "/src/components/CardDetails.jsx",
+        "./CardShort": "/src/components/CardShort.jsx",
+        "./NestedTodo": "/src/components/NestedTodo.jsx",
+      },
+      shared: {
+        react: { singleton: true, requiredVersion: false },
+        "react-dom": { singleton: true, requiredVersion: false },
+      },
     }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
@@ -66,5 +74,5 @@ module.exports = {
         type: "asset/resource",
       },
     ],
-  }
+  },
 };
